@@ -1,0 +1,26 @@
+#include <iostream>
+#include "../include/switch.h"
+#include "../include/sim.h"
+using namespace std;
+
+int main() {
+  int size = 0;
+
+  cin >> size;
+
+  Switch s{size};
+  Simulation sim{s, 10};
+
+  for(int i = 0; i < 10; i++) {
+    sim.gen_arrivals();
+  }
+
+  for(int i =0; i < size; i++) {
+    for(int j = 0; j < size; j++) {
+      cout << s.switch_matrix[i][j]
+           << " ";
+    }
+    cout << "\n";
+  }
+
+}

@@ -128,10 +128,3 @@ void HungarianAlgorithm::copy_array(int **arr,int **new_arr, int size) {
     }
   }
 }
-
-//DEBUG
-void HungarianAlgorithm::print_vector(std::vector<int> v) {
-  for(int n : v) {
-    std::cout << n << " ";
-  }
-}

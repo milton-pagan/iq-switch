@@ -11,3 +11,9 @@ void print_2D_array(int **arr, int size) {
 
   std::cout << "\n";
 }
+
+void print_vector(std::vector<int> v) {
+  for(int n : v) {
+    std::cout << n << " ";
+  }
+}

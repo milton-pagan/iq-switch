@@ -1,31 +1,29 @@
 #include <iostream>
 #include "../include/switch.h"
 #include "../include/sim.h"
+#include "../include/temp_functions.h"
+
 using namespace std;
 
 int main() {
   int size = 0;
   int time_slots = 0;
+  float epsilon = 0;
 
   cout << "Enter size: \n";
   cin >> size;
 
-  cout << "Enter arrivals: \n";
+  cout << "Enter number of time slots: \n";
   cin >> time_slots;
 
-  Switch s{size};
-  Simulation sim{s, size};
+  cout << "Enter epsilon: \n";
+  cin >> epsilon;
 
-  for(int i = 0; i < time_slots; i++) {
-    sim.gen_arrivals();
-  }
+  Switch iq_switch{size};
+  Simulation sim{iq_switch, size, epsilon};
 
-  for(int i =0; i < size; i++) {
-    for(int j = 0; j < size; j++) {
-      cout << s.switch_matrix[i][j]
-           << " ";
-    }
-    cout << "\n";
-  }
+  sim.run_sim(time_slots);
+
+  print_2D_array(iq_switch.get_matrix(), iq_switch.get_size());
 
 }

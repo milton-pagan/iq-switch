@@ -2,12 +2,12 @@
 
 class Switch {
  private:
-  int n;
+  int size;
+  int **switch_matrix = nullptr;
 
  public:
-  int switch_matrix[1024][1024];
-
   Switch(int n);
-  void add_arrival(int i, int j);
+  void add_arrival(int i, int j, int arrivals);
   int get_size();
+  int** get_matrix();
 };
